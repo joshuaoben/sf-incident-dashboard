@@ -1,7 +1,7 @@
-## SF Incident Dashboard
+# SF Incident Dashboard
 Interactive dashboard for exploring San Francisco public safety incident data. Built by Joshua Olonade as a frontend developer technical assessment.
 
-## How to Run
+# How to Run
 npm install
 npm start
 
@@ -9,26 +9,26 @@ The app opens at http://localhost:3000 and fetches data from the SF Open Data AP
 
 ## What I Implemented
 
-# Visualizations
+## Visualizations
 Call Volume Analysis (Bar Chart)
 - Shows top 12 most frequent call types
 - Click any bar to filter the table to that call type
 - Click the same bar again to clear the filter
 - Includes tooltips showing call type and count on hover
 
-# Response Performance (Line Chart)
+## Response Performance (Line Chart)
 - Displays average response times for each hour of the day (0-23)
 - Helps identify when emergency response is fastest/slowest
 - Includes tooltips showing exact times on hover
 
-# Data Table
+## Data Table
 12-column sortable table with:
 - Click any header to sort ascending/descending
 - Pagination (10 rows per page)
 - Updates automatically based on bar chart clicks and filters
 - Empty state message when no results match filters
 
-# Filters
+## Filters
 Five filter options that work together:
 - Search bar (text search across call types)
 - Priority dropdown (A/B/C)
@@ -36,7 +36,7 @@ Five filter options that work together:
 - Police District dropdown
 - Call Type dropdown (only in Call Volume view)
 
-# Metrics
+## Metrics
 Four summary cards displaying:
 - Total number of calls
 - Average response time (calculated from received to on-scene timestamps)
@@ -44,7 +44,7 @@ Four summary cards displaying:
 - Most active police district
 All metrics update in real-time as filters are applied.
 
-## Design Choices and Assumptions
+# Design Choices and Assumptions
 Two Analysis Views
 I implemented two distinct views to show different perspectives on the data. Call Volume uses a bar chart for categorical comparison, while Response Performance uses a line chart for time-based patterns.
 
@@ -60,10 +60,10 @@ Some records have invalid or missing datetime fields. I added validation to skip
 Call Type Filter Placement
 The call type dropdown only appears in the Call Volume view where it's contextually relevant, users are already looking at call types in the chart.
 
-## AI Usage
+# AI Usage
 I used Claude for documentation lookups, syntax validation, and refreshing best practices across React patterns, chart libraries, and styling approaches. All architectural decisions, component structure, feature selection, and problem-solving approaches were my own.
 
-## Tech Stack
+# Tech Stack
 - React (Create React App)
 - Recharts for charts
 - Vanilla CSS
