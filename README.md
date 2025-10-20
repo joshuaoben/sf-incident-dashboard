@@ -7,7 +7,7 @@ npm start
 
 The app opens at http://localhost:3000 and fetches data from the SF Open Data API.
 
-## What I Implemented
+# What I Implemented
 
 ## Visualizations
 Call Volume Analysis (Bar Chart)
@@ -64,7 +64,7 @@ The call type dropdown only appears in the Call Volume view where it's contextua
 I used Claude for documentation lookups, syntax validation, and refreshing best practices across React patterns, chart libraries, and styling approaches. All architectural decisions, component structure, feature selection, and problem-solving approaches were my own.
 
 # Tech Stack
-- React (Create React App)
+- React
 - Recharts for charts
 - Vanilla CSS
 - SF Open Data API
