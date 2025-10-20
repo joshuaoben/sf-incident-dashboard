@@ -16,7 +16,7 @@ Call Volume Analysis (Bar Chart)
 - Click the same bar again to clear the filter
 - Includes tooltips showing call type and count on hover
 
-Response Performance (Line Chart)
+# Response Performance (Line Chart)
 - Displays average response times for each hour of the day (0-23)
 - Helps identify when emergency response is fastest/slowest
 - Includes tooltips showing exact times on hover
