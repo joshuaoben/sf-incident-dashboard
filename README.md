@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+## SF Incident Dashboard
+Interactive dashboard for exploring San Francisco public safety incident data. Built by Joshua Olonade as a frontend developer technical assessment.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to Run
+npm install
+npm start
 
-## Available Scripts
+The app opens at http://localhost:3000 and fetches data from the SF Open Data API.
 
-In the project directory, you can run:
+## What I Implemented
 
-### `npm start`
+# Visualizations
+Call Volume Analysis (Bar Chart)
+- Shows top 12 most frequent call types
+- Click any bar to filter the table to that call type
+- Click the same bar again to clear the filter
+- Includes tooltips showing call type and count on hover
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Response Performance (Line Chart)
+- Displays average response times for each hour of the day (0-23)
+- Helps identify when emergency response is fastest/slowest
+- Includes tooltips showing exact times on hover
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Data Table
+12-column sortable table with:
+- Click any header to sort ascending/descending
+- Pagination (10 rows per page)
+- Updates automatically based on bar chart clicks and filters
+- Empty state message when no results match filters
 
-### `npm test`
+# Filters
+Five filter options that work together:
+- Search bar (text search across call types)
+- Priority dropdown (A/B/C)
+- Date range (24h, 7d, 30d, all time)
+- Police District dropdown
+- Call Type dropdown (only in Call Volume view)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Metrics
+Four summary cards displaying:
+- Total number of calls
+- Average response time (calculated from received to on-scene timestamps)
+- Percentage of high-priority calls
+- Most active police district
+All metrics update in real-time as filters are applied.
 
-### `npm run build`
+## Design Choices and Assumptions
+Two Analysis Views
+I implemented two distinct views to show different perspectives on the data. Call Volume uses a bar chart for categorical comparison, while Response Performance uses a line chart for time-based patterns.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Client-Side Pagination
+I set the API fetch limit to 5,000 records as the dataset contains approximately 3,300 current records, and I paginate in the browser for instant page changes. For production systems with larger datasets, I'd implement server-side pagination using the API's offset/limit parameters.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Table Columns
+The API returns 20+ fields. I chose 12 operationally relevant columns to balance completeness with readability.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Data Quality
+Some records have invalid or missing datetime fields. I added validation to skip these records rather than crash the app or skew response time calculations. Negative response times (data errors) are also filtered out.
 
-### `npm run eject`
+Call Type Filter Placement
+The call type dropdown only appears in the Call Volume view where it's contextually relevant, users are already looking at call types in the chart.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## AI Usage
+I used Claude for documentation lookups, syntax validation, and refreshing best practices across React patterns, chart libraries, and styling approaches. All architectural decisions, component structure, feature selection, and problem-solving approaches were my own.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Tech Stack
+- React (Create React App)
+- Recharts for charts
+- Vanilla CSS
+- SF Open Data API
